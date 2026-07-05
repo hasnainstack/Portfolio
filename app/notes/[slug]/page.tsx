@@ -16,7 +16,7 @@ export default function NoteDetail({ params }: { params: { slug: string } }) {
   if (!note) notFound();
 
   return (
-    <article className="mx-auto max-w-2xl px-6 py-20">
+    <article className="mx-auto max-w-2xl px-4 sm:px-6 py-12 sm:py-20">
       <Link
         href="/notes"
         className="font-mono text-xs uppercase tracking-widest text-ink-soft hover:text-signal"

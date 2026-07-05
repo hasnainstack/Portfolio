@@ -7,7 +7,7 @@ export default function NotesPage() {
   const notes = getAllNotes();
 
   return (
-    <div className="mx-auto max-w-3xl px-6 py-20">
+    <div className="mx-auto max-w-3xl px-4 sm:px-6 py-12 sm:py-20">
       <p className="font-mono text-xs uppercase tracking-widest text-ink-soft mb-3">
         Observations
       </p>

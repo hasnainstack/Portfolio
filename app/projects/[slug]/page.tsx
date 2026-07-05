@@ -16,7 +16,7 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
   if (!project) notFound();
 
   return (
-    <article className="mx-auto max-w-3xl px-6 py-20">
+    <article className="mx-auto max-w-3xl px-4 sm:px-6 py-12 sm:py-20">
       <Link
         href="/projects"
         className="font-mono text-xs uppercase tracking-widest text-ink-soft hover:text-signal"
@@ -30,7 +30,7 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
         <span>{project.status}</span>
       </div>
 
-      <h1 className="font-display text-4xl sm:text-5xl mt-4 mb-6">
+      <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl mt-4 mb-6">
         {project.title}
       </h1>
 

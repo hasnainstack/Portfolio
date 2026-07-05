@@ -8,25 +8,25 @@ export const metadata = { title: "Experience — Hasnain" };
 
 export default function ExperiencePage() {
   return (
-    <div className="mx-auto max-w-4xl px-6 py-20">
+    <div className="mx-auto max-w-4xl px-4 sm:px-6 py-12 sm:py-20">
       <p className="font-mono text-xs uppercase tracking-widest text-ink-soft mb-3">
         Log
       </p>
-      <h1 className="font-display text-4xl mb-4">Experience</h1>
-      <p className="text-ink-soft max-w-xl mb-16">
+      <h1 className="font-display text-3xl sm:text-4xl mb-4">Experience</h1>
+      <p className="text-ink-soft max-w-xl mb-10 sm:mb-16 text-sm sm:text-base">
         Roles logged in order, each tagged with the skill classes it drew on ·
         the same way a detector reports which classes it found in a frame.
       </p>
 
-      <section className="mb-20">
+      <section className="mb-12 sm:mb-20">
         <h2 className="font-mono text-xs uppercase tracking-widest text-ink-soft mb-6">
           Skill classes
         </h2>
         <SkillLegend />
       </section>
 
-      <section className="mb-20">
-        <h2 className="font-mono text-xs uppercase tracking-widest text-ink-soft mb-8">
+      <section className="mb-12 sm:mb-20">
+        <h2 className="font-mono text-xs uppercase tracking-widest text-ink-soft mb-6 sm:mb-8">
           Roles
         </h2>
         <div>
@@ -36,11 +36,11 @@ export default function ExperiencePage() {
         </div>
       </section>
 
-      <section className="mb-20">
-        <h2 className="font-mono text-xs uppercase tracking-widest text-ink-soft mb-8">
+      <section className="mb-12 sm:mb-20">
+        <h2 className="font-mono text-xs uppercase tracking-widest text-ink-soft mb-6 sm:mb-8">
           Freelance
         </h2>
-        <div className="grid sm:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           {freelance.map((f) => (
             <div key={f.org} className="border border-line rounded-sm p-5">
               <h3 className="font-display text-lg mb-3">{f.org}</h3>
@@ -67,8 +67,8 @@ export default function ExperiencePage() {
         </div>
       </section>
 
-      <section className="mb-20">
-        <div className="mb-8">
+      <section className="mb-12 sm:mb-20">
+        <div className="mb-6 sm:mb-8">
           <h2 className="font-mono text-xs uppercase tracking-widest text-ink-soft mb-2">
             Live sites · detected
           </h2>
@@ -77,7 +77,7 @@ export default function ExperiencePage() {
             to the live site.
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5">
           {liveSites.map((site) => (
             <DetectionSiteCard key={site.url} {...site} />
           ))}
@@ -85,7 +85,7 @@ export default function ExperiencePage() {
       </section>
 
       <section>
-        <div className="mb-8">
+        <div className="mb-6 sm:mb-8">
           <h2 className="font-mono text-xs uppercase tracking-widest text-ink-soft mb-2">
             GenAI apps · detected
           </h2>
@@ -93,7 +93,7 @@ export default function ExperiencePage() {
             Deployed prototypes and agents from personal projects.
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5">
           {genAiApps.map((app) => (
             <DetectionSiteCard key={app.url} {...app} />
           ))}

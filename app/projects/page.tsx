@@ -15,7 +15,7 @@ export default function ProjectsPage() {
     active === ALL ? projects : projects.filter((p) => p.tags.includes(active));
 
   return (
-    <div className="mx-auto max-w-5xl px-6 py-20">
+    <div className="mx-auto max-w-5xl px-4 sm:px-6 py-12 sm:py-20">
       <p className="font-mono text-xs uppercase tracking-widest text-ink-soft mb-3">Log</p>
       <h1 className="font-display text-4xl mb-8">All experiments</h1>
 
