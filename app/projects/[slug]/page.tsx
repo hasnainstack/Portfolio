@@ -61,9 +61,18 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
       </Section>
 
       <Section title="Architecture">
-        <p className="font-mono text-sm text-ink-soft leading-relaxed border border-line rounded-sm p-4">
-          {project.architecture}
-        </p>
+        <div className="flex flex-wrap items-center gap-2">
+          {project.architecture.split("→").map((step, i, arr) => (
+            <span key={i} className="contents">
+              <span className="font-mono text-xs text-ink-soft border border-line rounded-sm px-3 py-2 leading-snug">
+                {step.trim()}
+              </span>
+              {i < arr.length - 1 && (
+                <span className="font-mono text-signal text-sm shrink-0">→</span>
+              )}
+            </span>
+          ))}
+        </div>
       </Section>
 
       <Section title="Challenges">

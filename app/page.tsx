@@ -3,6 +3,7 @@ import Scanner from "@/components/Scanner";
 import ProjectCard from "@/components/ProjectCard";
 import DetectionSiteCard from "@/components/DetectionSiteCard";
 import NotebookTerminal from "@/components/NotebookTerminal";
+import TypingWord from "@/components/TypingWord";
 import { projects } from "@/lib/projects";
 import { liveSites } from "@/lib/sites";
 import { getAllNotes } from "@/lib/notes";
@@ -19,7 +20,7 @@ export default function Home() {
 
         <Scanner label="Subject: Hasnain — CV/AI Engineer">
           <h1 className="font-display text-5xl sm:text-7xl leading-[1.05] max-w-3xl">
-            I build systems that <em className="italic text-signal">see</em>,
+            I build systems that <TypingWord word="see" delay={1200} className="text-signal" />,
             then explain what they saw.
           </h1>
         </Scanner>
@@ -82,8 +83,8 @@ export default function Home() {
           </Link>
         </div>
         <div className="grid sm:grid-cols-2 gap-5">
-          {projects.slice(0, 4).map((project) => (
-            <ProjectCard key={project.slug} project={project} />
+          {projects.slice(0, 4).map((project, i) => (
+            <ProjectCard key={project.slug} project={project} index={i} />
           ))}
         </div>
       </section>

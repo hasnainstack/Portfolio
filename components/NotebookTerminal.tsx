@@ -24,6 +24,7 @@ const COMMANDS = [
   "sites",
   "genai",
   "about",
+  "contact",
   "help",
   "clear",
 ];
@@ -161,6 +162,9 @@ export default function NotebookTerminal({ notes }: { notes: NoteMeta[] }) {
           </div>
         );
 
+      case "contact":
+        return <ContactForm />;
+
       case "about":
         return (
           <p className="text-paper/90 leading-relaxed max-w-lg">
@@ -187,6 +191,9 @@ export default function NotebookTerminal({ notes }: { notes: NoteMeta[] }) {
             </div>
           </div>
         );
+
+      case "contact":
+        return <ContactForm />;
 
       case "":
         return null;

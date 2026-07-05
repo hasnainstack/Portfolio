@@ -4,6 +4,7 @@ import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import CvCursor from "@/components/CvCursor";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const display = Fraunces({
   subsets: ["latin"],
@@ -28,6 +29,19 @@ export const metadata: Metadata = {
   title: "Hasnain — Field Notes",
   description:
     "AI / computer vision engineer. Projects logged like lab experiments, notes written like field observations.",
+  openGraph: {
+    title: "Hasnain — CV / AI Lab Notebook",
+    description: "AI / computer vision engineer. Projects logged like lab experiments.",
+    url: "https://hasnain.dev",
+    siteName: "Hasnain Lab Notebook",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hasnain — CV / AI Lab Notebook",
+    description: "AI / computer vision engineer. Projects logged like lab experiments.",
+  },
 };
 
 export default function RootLayout({
@@ -41,6 +55,7 @@ export default function RootLayout({
         <CvCursor />
         <SiteHeader />
         <main className="flex-1">{children}</main>
+        <ScrollToTop />
         <SiteFooter />
       </body>
     </html>
