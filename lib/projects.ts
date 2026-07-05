@@ -64,7 +64,7 @@ export const projects: Project[] = [
       "Misconfigured typed API objects meant the client and server disagreed on event shape after a reconnect; fixed by sharing one schema definition.",
       "Reconnection logic initially dropped the last few seconds of audio — solved with a small client-side ring buffer replayed on reconnect.",
     ],
-    links: [{ label: "Build spec", href: "#" }],
+    links: [{ label: "In progress", href: "#" }],
   },
   {
     slug: "yolo-food-detection-gym-coach",
@@ -88,7 +88,7 @@ export const projects: Project[] = [
       "Balancing the food-not-food dataset to avoid the classifier over-triggering on plain backgrounds.",
       "Keeping inference fast enough for a responsive camera pipeline on modest hardware.",
     ],
-    links: [{ label: "Notebook", href: "#" }],
+    links: [{ label: "Built at LearNN", href: "/experience" }],
   },
   {
     slug: "interview-ai",
@@ -112,7 +112,7 @@ export const projects: Project[] = [
       "Calibrating question difficulty to role seniority without over-prompting the model on every request.",
       "Keeping feedback actionable rather than generic — required iterative prompt refinement against real user responses.",
     ],
-    links: [{ label: "Live demo", href: "#" }],
+    links: [{ label: "GitHub", href: "https://github.com/proghassnain/Interview-Ai" }],
   },
   {
     slug: "grand-hilton-voice-agent",
@@ -136,7 +136,7 @@ export const projects: Project[] = [
       "Latency spikes between STT output and LLM response broke the natural conversation rhythm — mitigated with streaming responses and early TTS buffering.",
       "Function-calling schemas needed tight constraints to prevent the model from hallucinating room IDs that don't exist in the live inventory.",
     ],
-    links: [{ label: "Live demo", href: "#" }],
+    links: [{ label: "GitHub", href: "https://github.com/proghassnain/call-agent" }],
   },
   {
     slug: "pet-mood-analyzer",
@@ -157,7 +157,7 @@ export const projects: Project[] = [
     challenges: [
       "Early prompts over-committed to a single mood label; revised to return a ranked short-list with rationale instead.",
     ],
-    links: [{ label: "UI brief", href: "#" }],
+    links: [{ label: "LinkedIn post", href: "https://www.linkedin.com/feed/update/urn:li:activity:7456744073836560384/" }],
   },
 ];
 

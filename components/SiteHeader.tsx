@@ -26,7 +26,7 @@ export default function SiteHeader() {
           <Link href="/experience" className={navClass("/experience")}>Experience</Link>
           <Link href="/projects" className={navClass("/projects")}>Experiments</Link>
           <Link href="/notes" className={navClass("/notes")}>Field Notes</Link>
-          <a href="mailto:hasnain@example.com" className="text-paper hover:text-signal transition-colors">Contact</a>
+          <a href="mailto:hassnaink462@gmail.com" className="text-paper hover:text-signal transition-colors">Contact</a>
         </nav>
       </div>
     </header>
