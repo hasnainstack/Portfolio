@@ -12,7 +12,3 @@ You can walk through the math. You can explain the loss function, the anchor
 boxes, the non-max suppression pass that cleans up overlapping predictions.
 None of that removes the small jolt of watching a bounding box lock onto a
 plate of food in a frame the model has never seen.
-
-This is a placeholder field note — swap in your own writing here, or add a
-new `.md` file in `content/notes/` with the same frontmatter shape and it
-will show up automatically on `/notes`.
