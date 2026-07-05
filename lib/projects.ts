@@ -63,6 +63,54 @@ export const projects: Project[] = [
     links: [{ label: "Notebook", href: "#" }],
   },
   {
+    slug: "interview-ai",
+    code: "EXP-005",
+    title: "Interview-AI",
+    status: "Shipped",
+    tags: ["Full-Stack", "Generative AI", "EdTech"],
+    summary:
+      "An AI-powered mock interview platform that generates role-specific questions, evaluates responses, and coaches users toward interview confidence.",
+    problem:
+      "Students and fresh graduates struggle to practice interviews realistically — generic question lists don't adapt to the role, and there's no feedback loop to improve communication under pressure.",
+    approach: [
+      "Generates realistic, role-specific interview questions tailored to the target job and seniority level.",
+      "Evaluates user responses with intelligent feedback covering content, clarity, and confidence signals.",
+      "Tracks session history so users can see improvement across practice rounds.",
+      "Designed an interactive, low-friction UI focused on real-world interview simulation.",
+    ],
+    architecture:
+      "Role/level input → question generation (LLM) → user response capture → evaluation pipeline (scoring + feedback) → session summary card.",
+    challenges: [
+      "Calibrating question difficulty to role seniority without over-prompting the model on every request.",
+      "Keeping feedback actionable rather than generic — required iterative prompt refinement against real user responses.",
+    ],
+    links: [{ label: "Live demo", href: "#" }],
+  },
+  {
+    slug: "grand-hilton-voice-agent",
+    code: "EXP-006",
+    title: "Grand Hilton Hotel Voice Agent",
+    status: "Shipped",
+    tags: ["Voice AI", "Agents", "Full-Stack"],
+    summary:
+      "A voice-based AI receptionist for hotel operations — handles bookings, cancellations, and room queries through natural speech.",
+    problem:
+      "Hotel front-desk calls are repetitive and high-volume. A voice agent that understands natural language and has live access to room inventory removes the bottleneck without sacrificing guest experience.",
+    approach: [
+      "STT/TTS pipeline for fully voice-driven guest interactions with no typing required.",
+      "LLM backbone (Gemini / Groq) with function calling so the agent can query and mutate live hotel data mid-conversation.",
+      "Real-time room availability checks, AI-assisted booking, and cancellation flows exposed as callable tools.",
+      "Analytics dashboard surfacing occupancy trends, booking patterns, and agent interaction metrics.",
+    ],
+    architecture:
+      "Guest speech → STT → LLM (function-calling enabled) → tool layer (availability / booking / cancellation) → TTS → guest, with a management dashboard reading the same data store.",
+    challenges: [
+      "Latency spikes between STT output and LLM response broke the natural conversation rhythm — mitigated with streaming responses and early TTS buffering.",
+      "Function-calling schemas needed tight constraints to prevent the model from hallucinating room IDs that don't exist in the live inventory.",
+    ],
+    links: [{ label: "Live demo", href: "#" }],
+  },
+  {
     slug: "pet-mood-analyzer",
     code: "EXP-002",
     title: "Pet Mood Analysis Tool",
