@@ -8,7 +8,7 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: { params: { slug: string } }) {
   const note = getNote(params.slug);
-  return { title: note ? `${note.title} — Hasnain` : "Not found" };
+  return { title: note ? `${note.title} · Hasnain` : "Not found" };
 }
 
 export default function NoteDetail({ params }: { params: { slug: string } }) {

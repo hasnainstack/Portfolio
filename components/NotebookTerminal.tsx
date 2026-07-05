@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import SkillLegend from "@/components/SkillLegend";
 import DetectionSiteCard from "@/components/DetectionSiteCard";
@@ -40,13 +40,142 @@ const ALIASES: Record<string, string> = {
   "?": "help",
 };
 
-export default function NotebookTerminal({ notes }: { notes: NoteMeta[] }) {
+function ContactForm() {
+  const [fields, setFields] = useState({ name: "", email: "", message: "" });
+  const [sent, setSent] = useState(false);
+
+  if (sent) {
+    return (
+      <p className="font-mono text-sm text-confidence">
+        transmission received · I&apos;ll get back to you soon.
+      </p>
+    );
+  }
+
+  const inputCls =
+    "w-full bg-transparent border border-line rounded-sm px-3 py-2 text-paper placeholder:text-ink-soft/50 focus:outline-none focus:border-signal transition-colors font-mono text-sm";
+
+  return (
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        setSent(true);
+      }}
+      className="space-y-3 max-w-md"
+    >
+      <div className="grid grid-cols-2 gap-3">
+        <input
+          required
+          placeholder="name"
+          value={fields.name}
+          onChange={(e) => setFields((f) => ({ ...f, name: e.target.value }))}
+          className={inputCls}
+        />
+        <input
+          required
+          type="email"
+          placeholder="email"
+          value={fields.email}
+          onChange={(e) => setFields((f) => ({ ...f, email: e.target.value }))}
+          className={inputCls}
+        />
+      </div>
+      <textarea
+        required
+        rows={4}
+        placeholder="message"
+        value={fields.message}
+        onChange={(e) => setFields((f) => ({ ...f, message: e.target.value }))}
+        className={`${inputCls} resize-none`}
+      />
+      <button
+        type="submit"
+        className="font-mono text-[11px] uppercase tracking-widest border border-signal text-signal px-4 py-2 rounded-sm hover:bg-signal hover:text-ink transition-colors"
+      >
+        send transmission →
+      </button>
+    </form>
+  );
+}
+
+const CONTACT_OPTS = [
+  { key: "contact", label: "contact form" },
+  { key: "email", label: "email" },
+  { key: "linkedin", label: "linkedin" },
+  { key: "github", label: "github" },
+];
+
+function ContactCell() {
+  const [chosen, setChosen] = useState<string | null>(null);
+
+  const output: Record<string, React.ReactNode> = {
+    contact: <ContactForm />,
+    email: (
+      <a
+        href="mailto:hassnaink462@gmail.com"
+        className="font-mono text-sm text-signal hover:underline"
+      >
+        hassnaink462@gmail.com
+      </a>
+    ),
+    linkedin: (
+      <a
+        href="https://linkedin.com/in/hassnainkdev"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="font-mono text-sm text-signal hover:underline"
+      >
+        linkedin.com/in/hassnainkdev →
+      </a>
+    ),
+    github: (
+      <a
+        href="https://github.com/hasnainstack"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="font-mono text-sm text-signal hover:underline"
+      >
+        github.com/hasnainstack →
+      </a>
+    ),
+  };
+
+  return (
+    <div className="space-y-4">
+      <div className="flex flex-wrap gap-2">
+        {CONTACT_OPTS.map((opt) => (
+          <button
+            key={opt.key}
+            onClick={() => setChosen(opt.key)}
+            className={`font-mono text-[11px] uppercase tracking-wider border rounded-full px-3 py-1 transition-colors ${
+              chosen === opt.key
+                ? "border-signal text-signal bg-signal/10"
+                : "border-line text-ink-soft hover:border-signal hover:text-signal"
+            }`}
+          >
+            {opt.label}
+          </button>
+        ))}
+      </div>
+      {chosen && <div>{output[chosen]}</div>}
+    </div>
+  );
+}
+
+export default function NotebookTerminal({
+  notes,
+  initialCommand,
+}: {
+  notes: NoteMeta[];
+  initialCommand?: string;
+}) {
   const [cells, setCells] = useState<Cell[]>([]);
   const [value, setValue] = useState("");
   const [historyIdx, setHistoryIdx] = useState<number | null>(null);
   const countRef = useRef(0);
   const idRef = useRef(0);
   const inputRef = useRef<HTMLInputElement>(null);
+  const didInit = useRef(false);
 
   function resolve(raw: string) {
     const key = raw.trim().toLowerCase();
@@ -163,7 +292,7 @@ export default function NotebookTerminal({ notes }: { notes: NoteMeta[] }) {
         );
 
       case "contact":
-        return <ContactForm />;
+        return <ContactCell />;
 
       case "about":
         return (
@@ -192,16 +321,13 @@ export default function NotebookTerminal({ notes }: { notes: NoteMeta[] }) {
           </div>
         );
 
-      case "contact":
-        return <ContactForm />;
-
       case "":
         return null;
 
       default:
         return (
           <p className="font-mono text-sm text-signal">
-            command not found: {raw} — try{" "}
+            command not found: {raw} · try{" "}
             <button
               onClick={() => run("help")}
               className="underline hover:text-paper"
@@ -231,6 +357,14 @@ export default function NotebookTerminal({ notes }: { notes: NoteMeta[] }) {
     setValue("");
     setHistoryIdx(null);
   }
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    if (initialCommand && !didInit.current) {
+      didInit.current = true;
+      run(initialCommand);
+    }
+  }, []);
 
   function onKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === "Enter" && value.trim().length > 0) {
@@ -270,7 +404,7 @@ export default function NotebookTerminal({ notes }: { notes: NoteMeta[] }) {
         </span>
       </div>
 
-      <div className="p-4 space-y-6 max-h-[420px] overflow-y-auto">
+      <div className="p-4 space-y-6 max-h-[520px] overflow-y-auto">
         {cells.map((cell) => (
           <div key={cell.id}>
             <div className="flex gap-2 text-ink-soft">
@@ -299,7 +433,7 @@ export default function NotebookTerminal({ notes }: { notes: NoteMeta[] }) {
             value={value}
             onChange={(e) => setValue(e.target.value)}
             onKeyDown={onKeyDown}
-            placeholder="try: experience, skills, projects, notes, sites, genai, help"
+            placeholder="try: experience, skills, projects, notes, sites, genai, contact, help"
             className="flex-1 bg-transparent outline-none text-paper placeholder:text-ink-soft/60"
             aria-label="Notebook command input"
           />

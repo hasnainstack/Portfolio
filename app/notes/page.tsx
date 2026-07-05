@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { getAllNotes } from "@/lib/notes";
 
-export const metadata = { title: "Field Notes — Hasnain" };
+export const metadata = { title: "Field Notes · Hasnain" };
 
 export default function NotesPage() {
   const notes = getAllNotes();
@@ -13,7 +13,7 @@ export default function NotesPage() {
       </p>
       <h1 className="font-display text-4xl mb-4">Field notes</h1>
       <p className="text-ink-soft mb-12 max-w-xl">
-        Shorter, less structured than the experiment log — thoughts written
+        Shorter, less structured than the experiment log · thoughts written
         while building.
       </p>
 

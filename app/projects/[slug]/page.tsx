@@ -8,7 +8,7 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: { params: { slug: string } }) {
   const project = getProject(params.slug);
-  return { title: project ? `${project.title} — Hasnain` : "Not found" };
+  return { title: project ? `${project.title} · Hasnain` : "Not found" };
 }
 
 export default function ProjectDetail({ params }: { params: { slug: string } }) {

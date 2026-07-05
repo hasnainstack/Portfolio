@@ -4,6 +4,7 @@ import ProjectCard from "@/components/ProjectCard";
 import DetectionSiteCard from "@/components/DetectionSiteCard";
 import NotebookTerminal from "@/components/NotebookTerminal";
 import TypingWord from "@/components/TypingWord";
+import FitScanner from "@/components/FitScanner";
 import { projects } from "@/lib/projects";
 import { liveSites } from "@/lib/sites";
 import { getAllNotes } from "@/lib/notes";
@@ -15,10 +16,10 @@ export default function Home() {
     <div>
       <section className="mx-auto max-w-5xl px-6 pt-28 pb-24">
         <p className="font-mono text-xs uppercase tracking-widest text-ink-soft mb-10">
-          Log start — subject entering frame
+          Log start · subject entering frame
         </p>
 
-        <Scanner label="Subject: Hasnain — CV/AI Engineer">
+        <Scanner label="Subject: Hasnain · CV/AI Engineer">
           <h1 className="font-display text-5xl sm:text-7xl leading-[1.05] max-w-3xl">
             I build systems that <TypingWord word="see" delay={1200} className="text-signal" />,
             then explain what they saw.
@@ -50,14 +51,14 @@ export default function Home() {
 
       <section className="mx-auto max-w-5xl px-6 pb-24">
         <p className="font-mono text-xs uppercase tracking-widest text-ink-soft mb-4">
-          Run a cell — try &quot;experience&quot; or &quot;skills&quot;
+          Run a cell · try experience or skills
         </p>
         <NotebookTerminal notes={notes} />
       </section>
 
       <section className="mx-auto max-w-5xl px-6 pb-28">
         <div className="flex items-baseline justify-between mb-8">
-          <h2 className="font-display text-2xl">Live sites — detected</h2>
+          <h2 className="font-display text-2xl">Live sites · detected</h2>
           <Link
             href="/experience"
             className="font-mono text-xs uppercase tracking-widest text-ink-soft hover:text-signal"
@@ -87,6 +88,23 @@ export default function Home() {
             <ProjectCard key={project.slug} project={project} index={i} />
           ))}
         </div>
+      </section>
+
+      <section className="mx-auto max-w-5xl px-6 pb-28">
+        <p className="font-mono text-xs uppercase tracking-widest text-ink-soft mb-3">
+          Run the match
+        </p>
+        <p className="text-ink-soft mb-6 max-w-xl">
+          Select what you are hiring for. Score is computed live against actual experience and project data.
+        </p>
+        <FitScanner />
+      </section>
+
+      <section className="mx-auto max-w-5xl px-6 pb-28">
+        <p className="font-mono text-xs uppercase tracking-widest text-ink-soft mb-4">
+          Open a channel
+        </p>
+        <NotebookTerminal notes={notes} initialCommand="contact" />
       </section>
     </div>
   );

@@ -26,11 +26,11 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Hasnain — Field Notes",
+  title: "Hasnain · Field Notes",
   description:
     "AI / computer vision engineer. Projects logged like lab experiments, notes written like field observations.",
   openGraph: {
-    title: "Hasnain — CV / AI Lab Notebook",
+    title: "Hasnain · CV / AI Lab Notebook",
     description: "AI / computer vision engineer. Projects logged like lab experiments.",
     url: "https://hasnain.dev",
     siteName: "Hasnain Lab Notebook",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hasnain — CV / AI Lab Notebook",
+    title: "Hasnain · CV / AI Lab Notebook",
     description: "AI / computer vision engineer. Projects logged like lab experiments.",
   },
 };

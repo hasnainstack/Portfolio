@@ -14,6 +14,34 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "eduagent",
+    code: "EXP-007",
+    title: "EduAgent · AI Voice Sales Assistant",
+    status: "Shipped",
+    tags: ["Voice AI", "Agents", "Full-Stack"],
+    summary:
+      "Nova — a voice-powered AI admissions counselor for DevNest Academy. Answers questions about courses, fees, scholarships, and enrollments via voice or text.",
+    problem:
+      "Online academies lose prospective students at the inquiry stage — no one is available 24/7 to answer course, fee, and scholarship questions in a natural, conversational way.",
+    approach: [
+      "Custom prompt-based tool-calling loop (not LangChain bind_tools) — more reliable with Groq’s Llama 3.3-70b on structured JSON outputs.",
+      "Dual voice pipeline: Browser Web Speech API for low-latency text-to-agent, and a WebSocket path using Deepgram STT + gTTS/ElevenLabs for full audio round-trips.",
+      "7 agent tools covering course search, fee lookup, scholarship matching, FAQ retrieval, and authenticated enrollment.",
+      "JWT auth, SQLite + SQLAlchemy backend, admin panel for course management, and a shopping cart for direct enrollment.",
+    ],
+    architecture:
+      "Browser mic → Web Speech API → POST /chat → NovaAgent (Groq Llama 3.3-70b) → tool-calling loop → response text → SpeechSynthesis → user. WebSocket path: audio → Deepgram STT → agent → gTTS/ElevenLabs → audio bytes → browser playback.",
+    challenges: [
+      "LangChain bind_tools was unreliable with Llama on Groq — switched to parsing raw JSON tool-call output from the prompt, which proved far more stable.",
+      "SQLite connection pool exhaustion under hot-reload — fixed with NullPool to avoid stale connections during development.",
+      "Keeping voice latency acceptable across the full STT → LLM → TTS chain — browser SpeechSynthesis as primary TTS eliminated one network hop entirely.",
+    ],
+    links: [
+      { label: "Live demo", href: "https://eduagent-zeta.vercel.app/" },
+      { label: "GitHub", href: "https://github.com/hasnainstack/eduagent" },
+    ],
+  },
+  {
     slug: "ai-voice-interviewer",
     code: "EXP-004",
     title: "AI Voice Interviewer",

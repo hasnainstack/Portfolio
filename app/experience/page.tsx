@@ -14,7 +14,7 @@ export default function ExperiencePage() {
       </p>
       <h1 className="font-display text-4xl mb-4">Experience</h1>
       <p className="text-ink-soft max-w-xl mb-16">
-        Roles logged in order, each tagged with the skill classes it drew on —
+        Roles logged in order, each tagged with the skill classes it drew on ·
         the same way a detector reports which classes it found in a frame.
       </p>
 
@@ -70,7 +70,7 @@ export default function ExperiencePage() {
       <section className="mb-20">
         <div className="mb-8">
           <h2 className="font-mono text-xs uppercase tracking-widest text-ink-soft mb-2">
-            Live sites — detected
+            Live sites · detected
           </h2>
           <p className="text-ink-soft text-sm max-w-xl">
             Shipped WordPress sites, framed like detections. Every card links
@@ -87,7 +87,7 @@ export default function ExperiencePage() {
       <section>
         <div className="mb-8">
           <h2 className="font-mono text-xs uppercase tracking-widest text-ink-soft mb-2">
-            GenAI apps — detected
+            GenAI apps · detected
           </h2>
           <p className="text-ink-soft text-sm max-w-xl">
             Deployed prototypes and agents from personal projects.
