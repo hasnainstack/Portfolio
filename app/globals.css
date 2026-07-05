@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0B1220;
+  color: #ECE7DD;
+}
+
+/* faint scanline texture, used sparingly behind the hero only */
+.scanlines::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(236, 231, 221, 0.025) 0px,
+    rgba(236, 231, 221, 0.025) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+::selection {
+  background: #FF6A3D;
+  color: #0B1220;
+}
+
+@media (pointer: fine) {
+  body.cv-cursor-active,
+  body.cv-cursor-active * {
+    cursor: none;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid #FF6A3D;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
