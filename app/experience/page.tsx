@@ -77,7 +77,7 @@ export default function ExperiencePage() {
             to the live site.
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 gap-5">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
           {liveSites.map((site) => (
             <DetectionSiteCard key={site.url} {...site} />
           ))}
@@ -93,7 +93,7 @@ export default function ExperiencePage() {
             Deployed prototypes and agents from personal projects.
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 gap-5">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
           {genAiApps.map((app) => (
             <DetectionSiteCard key={app.url} {...app} />
           ))}

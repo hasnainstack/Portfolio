@@ -74,6 +74,7 @@ export default function CvCursor() {
         marginLeft: -size / 2,
         marginTop: -size / 2,
         transition: "opacity 0.15s ease",
+        opacity: 0,
       }}
       aria-hidden="true"
     >
@@ -102,9 +103,7 @@ export default function CvCursor() {
         ref={labelRef}
         className="absolute whitespace-nowrap font-mono text-[9px]"
         style={{ bottom: "100%", left: "50%", transform: "translateX(-50%)", marginBottom: 4, color }}
-      >
-        x:0 y:0
-      </div>
+      />
     </div>
   );
 }
