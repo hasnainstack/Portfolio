@@ -14,6 +14,33 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "alex-voice-agent",
+    code: "EXP-008",
+    title: "Alex Voice Agent",
+    status: "Shipped",
+    tags: ["Voice AI", "Agents", "Full-Stack"],
+    summary:
+      "A polished voice-first AI assistant built with Next.js and Vapi, featuring live speech capture, transcript handling, and conversational workflows for real-time interaction.",
+    problem:
+      "Voice experiences often feel fragmented when speech capture, agent logic, and UI state are not tightly integrated. A smoother end-to-end flow is needed for demo-ready conversational AI.",
+    approach: [
+      "Built a responsive Next.js interface for microphone-driven conversations with live transcript feedback and audio visualization.",
+      "Integrated Vapi for a more complete voice pipeline, including speech-to-text and text-to-speech handling.",
+      "Refined the system prompt and conversation logic to support structured extraction tasks such as email capture from spoken input.",
+      "Iterated on UX details so the assistant feels more natural and production-like during live demos.",
+    ],
+    architecture:
+      "Browser mic → voice pipeline (Vapi) → conversational agent prompt → transcript/audio state → UI feedback loop, with the app surfacing live capture and assistant responses in real time.",
+    challenges: [
+      "Normalizing spoken words and extracting information like emails reliably from live voice input required prompt and parsing refinements.",
+      "Keeping the UI responsive while managing transcript state, audio events, and live capture made the interaction layer more complex.",
+    ],
+    links: [
+      { label: "Live demo", href: "https://alex-voice-agent-five.vercel.app/" },
+      { label: "GitHub", href: "https://github.com/hasnainstack/Alex-voice-Agent" },
+    ],
+  },
+  {
     slug: "eduagent",
     code: "EXP-007",
     title: "EduAgent · AI Voice Sales Assistant",
