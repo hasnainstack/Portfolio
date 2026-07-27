@@ -62,9 +62,9 @@ export default function DetectionSiteCard({
 
       {/* browser chrome */}
       <div className="flex items-center gap-1.5 px-4 py-3 bg-line/40 border-b border-line">
-        <span className="w-2 h-2 rounded-full" style={{ background: '#FF5F56' }} />
-        <span className="w-2 h-2 rounded-full" style={{ background: '#FFBD2E' }} />
-        <span className="w-2 h-2 rounded-full" style={{ background: '#27C93F' }} />
+        <span className="w-2 h-2 rounded-full" style={{ background: 'rgb(var(--color-browser-red))' }} />
+        <span className="w-2 h-2 rounded-full" style={{ background: 'rgb(var(--color-browser-yellow))' }} />
+        <span className="w-2 h-2 rounded-full" style={{ background: 'rgb(var(--color-browser-green))' }} />
         <span className="ml-2 font-mono text-[10px] text-ink-soft truncate">
           {displayUrl}
         </span>
@@ -77,7 +77,7 @@ export default function DetectionSiteCard({
           className="absolute inset-0 pointer-events-none opacity-20"
           style={{
             backgroundImage:
-              "linear-gradient(transparent 23px, rgba(255,255,255,0.02) 24px), linear-gradient(90deg, transparent 23px, rgba(255,255,255,0.02) 24px)",
+              "linear-gradient(transparent 23px, rgb(var(--color-paper) / 0.02) 24px), linear-gradient(90deg, transparent 23px, rgb(var(--color-paper) / 0.02) 24px)",
             backgroundSize: "24px 24px",
           }}
         />
@@ -95,7 +95,7 @@ export default function DetectionSiteCard({
         {(() => {
           const arm = 12; // px arm length for brackets
           const s = Math.max(6, inset); // px inset from edges
-          const stroke = hovered ? "rgba(255,122,77,0.95)" : "rgba(255,106,61,0.9)";
+          const stroke = hovered ? "rgb(var(--color-signal) / 0.95)" : "rgb(var(--color-signal) / 0.9)";
           const strokeWidth = 1.2;
           const w = Math.max(0, size.w || 200);
           const h = Math.max(0, size.h || 120);
