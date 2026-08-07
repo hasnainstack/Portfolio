@@ -48,7 +48,7 @@ The builder makes designing faster—the underlying web technologies make deeper
 
 ## Plugins add functionality
 
-One of the biggest reasons WordPress is so flexible is its plugin ecosystem.
+Biggest reasons WordPress is so flexible is its plugin ecosystem.
 
 Plugins can add functionality such as e-commerce, forms, SEO, caching, analytics, and security without requiring everything to be developed from scratch.
 
